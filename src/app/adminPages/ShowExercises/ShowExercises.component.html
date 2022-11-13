@@ -1,0 +1,42 @@
+<div class="dashboard-content">
+      <!-- Notice -->
+      <div class="row" *ngIf="message">
+         <div class="col-md-12 mb-4">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+               <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+               <span class="alert-inner--text"><strong>Success!</strong> {{message}}!</span>
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">×</span>
+               </button>
+            </div>
+         </div>
+      </div>
+      <!-- Content -->
+   <div class="row responsive-row">
+      <!-- Exercises -->
+      <div class="col-lg-12 col-md-12">
+         <div class="dashboard-list-box mb-5">
+            <div class="db-tile ">
+               <h4>Created Exercises</h4>
+            </div>
+            <ul class="row border-grid">
+               <li class="col-sm-6 col-md-6 col-lg-6" *ngFor="let exercise of Data">
+                  <div class="list-box-listing">
+                     <div class="list-box-listing-content">
+                        <div class="inner">
+                           <h3><a >{{exercise.title}}</a></h3>
+                           <span>{{exercise.text}}</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="btn-g pt-4">
+                     <a  href="admin/add-exercise/{{exercise.id}}"  class="btn btn-sm btn-primary text-white"><em class="sl sl-icon-note"></em> Edit</a>
+                     <a  class="btn btn-sm btn-danger text-white" (click)="DeleteExercise(exercise.id)"><em class="sl sl-icon-close"></em> Delete</a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+

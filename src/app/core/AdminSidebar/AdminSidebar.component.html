@@ -1,0 +1,33 @@
+<div class="db-admin">
+   <div class="dashboard-nav">
+      <div class="dashboard-nav-inner">
+         <ul data-submenu-title="Main">
+            <li class="active"><a [routerLink]="['/admin/dashboard']"><em class="fa fa-tachometer"></em> Dashboard</a></li>
+            <li><a [routerLink]="['/admin/messages']"><em class="fa fa-inbox"></em> Messages</a></li>
+            <li><a [routerLink]="['/admin/bookmarks']"><em class="fa fa-bookmark"></em> Bookmarks</a></li>
+         </ul>
+         <ul data-submenu-title="Exercises" *ngIf="user_role === 'Worker' || user_role === 'Admin'">
+            <li><a [routerLink]="['/admin/exercises']"><em class="fa fa-calendar-check-o"></em> My Exercises</a></li>
+            <li><a [routerLink]="['/admin/add-exercise']"><em class="fa fa-calendar-plus-o"></em> Add Exercise</a></li>
+         </ul>
+         <ul data-submenu-title="Plans" *ngIf="user_role === 'Worker' || user_role === 'Admin'">
+            <li><a [routerLink]="['/admin/plans']"><em class="fa fa-calendar-check-o"></em> My Plans</a></li>
+            <li><a [routerLink]="['/admin/reviews']"><em class="fa fa-star"></em> Reviews</a></li>
+            <li><a [routerLink]="['/admin/add-plan']"><em class="fa fa-calendar-plus-o"></em> Add Plan</a></li>
+         </ul>
+         <ul data-submenu-title="Users" *ngIf="user_role === 'Admin'">
+            <li><a [routerLink]="['/admin/users']"><em class="fa fa-users"></em> Users</a></li>
+         </ul>
+         <ul data-submenu-title="Account">
+            <li><a [routerLink]="['/admin/profile']"><em class="fa fa-user"></em> My Profile</a></li>
+            <li><a [routerLink]="['/admin/progress']"><em class="fa fa-tasks"></em> My Progress</a></li>
+            <li><a [routerLink]="['/admin/settings']"><em class="fa fa-cogs"></em> Settings</a></li>
+            <li><a [routerLink]="" (click)="logout()"><em class="fa fa-sign-out"></em> Logout</a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+<a class="db-trigger" (click)="toggleMenu()">
+<em class="fa fa-reorder"></em>
+</a>
+
